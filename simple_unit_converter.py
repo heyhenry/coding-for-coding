@@ -26,7 +26,7 @@ class MainApp:
         # if the input value is a non-integer then showcase the menu again
         except ValueError:
             # notify user with an error message
-            print("Invalid User Input! Please enter a number.")
+            print("Error: Invalid User Input! Please enter a number.")
             self.menu()
 
         # call relevant funciton based on selected menu option
@@ -40,35 +40,44 @@ class MainApp:
             print(self.kilograms_to_pounds())
             self.menu()
         else:
-            print("Invalid User Input! Please select a number from the menu.")
+            print("Error: Invalid User Input! Please select a number from the menu.")
             self.menu()
             
     # kilometers to miles converter
     def kilometers_to_miles(self):
-        user_given_value = float(input("Enter value (in kilometers): "))
-        # conversion formula (km to mi)
-        result = user_given_value * 0.62137
-        # create string formatted result
-        result_string = f'Result: {user_given_value} kilometers converts to {round(result, 1)} miles.'
-        return result_string
+        try:
+            user_given_value = float(input("Enter value (in kilometers): "))
+            # conversion formula (km to mi)
+            result = user_given_value * 0.62137
+            # create string formatted result
+            result_string = f'Result: {user_given_value} kilometers converts to {round(result, 1)} miles.'
+            return result_string
+        except ValueError:
+            return "Error: Invalid User Input! Please enter a number (Integer or Float)."
 
     # celsius to fahrenheit converter
     def celsius_to_fahrenheit(self):
-        user_given_value = float(input("Enter value (in celsius): "))
-        # conversion formula (C to F)
-        result = (user_given_value * 9/5) + 32
-        # create string formatted result
-        result_string = f'Result: {user_given_value} celsius converts to {round(result, 1)} fahrenheit.'
-        return result_string
+        try:
+            user_given_value = float(input("Enter value (in celsius): "))
+            # conversion formula (C to F)
+            result = (user_given_value * 9/5) + 32
+            # create string formatted result
+            result_string = f'Result: {user_given_value} celsius converts to {round(result, 1)} fahrenheit.'
+            return result_string
+        except ValueError:
+            return "Error: Invalid User Input! Please enter a number (Integer or Float)."
 
     # kilograms to pounds converter
     def kilograms_to_pounds(self):
-        user_given_value = float(input("Enter value (in kilograms): "))
-        # conversion formula (kg to lb)
-        result = user_given_value * 2.205
-        # create string formatted result
-        result_string = f'Result: {user_given_value} kilograms converts to {round(result, 1)} pounds.'
-        return result_string 
+        try:
+            user_given_value = float(input("Enter value (in kilograms): "))
+            # conversion formula (kg to lb)
+            result = user_given_value * 2.205
+            # create string formatted result
+            result_string = f'Result: {user_given_value} kilograms converts to {round(result, 1)} pounds.'
+            return result_string 
+        except ValueError:
+            return "Error: Invalid User Input! Please enter a number (Integer or Float)."
 
 if __name__ == "__main__":
     app = MainApp()
