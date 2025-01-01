@@ -10,6 +10,15 @@ Features:
 Stretch Goal: Add input validation to handle incorrect or non-numeric inputs.
 """
 class MainApp:
+    """
+    A simple unit converter application.
+
+    Features:
+    - Kilometers to Miles conversion
+    - Celsius to Fahrenheit conversion
+    - Kilograms to Pounds conversion
+    - Smooth handling of invalid inputs
+    """
 
     # selectable menu
     def menu(self):
@@ -42,9 +51,14 @@ class MainApp:
                 break
             else:
                 print("Error: Invalid User Input! Please select a number from the menu.")
-            
+    
     # kilometers to miles converter
     def kilometers_to_miles(self):
+        """
+        Function: kilometers_to_miles()
+        Description: Converts the given kilometers value to miles
+        Conversion Formula: user_given_value * 0.62137
+        """
         try:
             user_given_value = float(input("Enter value (in kilometers): "))
             # conversion formula (km to mi)
@@ -57,6 +71,11 @@ class MainApp:
 
     # celsius to fahrenheit converter
     def celsius_to_fahrenheit(self):
+        """
+        Function: celsius_to_fahrenheit()
+        Description: Converts the given celsius value to fahrenheit
+        Conversion Formula: (user_given_value * 9/5) + 32
+        """
         try:
             user_given_value = float(input("Enter value (in celsius): "))
             # conversion formula (C to F)
@@ -69,6 +88,11 @@ class MainApp:
 
     # kilograms to pounds converter
     def kilograms_to_pounds(self):
+        """
+        Function: kilograms_to_pounds()
+        Description: Converts the given kilograms value to pounds
+        Conversion Formula: user_given_value * 2.205
+        """
         try:
             user_given_value = float(input("Enter value (in kilograms): "))
             # conversion formula (kg to lb)
@@ -81,7 +105,7 @@ class MainApp:
 
 if __name__ == "__main__":
     app = MainApp()
-    app.menu()
+    # app.menu()
     
     # to see the code in a document style in the terminal
-    # help(MainApp)
+    help(MainApp)
