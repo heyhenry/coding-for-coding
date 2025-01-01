@@ -13,35 +13,35 @@ class MainApp:
 
     # selectable menu
     def menu(self):
-        # selection option from menu
-        print("\n=== Menu ===")
-        print("1. Kilometers to Miles")
-        print("2. Celsius to Fahrenheit")
-        print("3. Kilograms to Pounds")
-        print("=== ==== ===")
-        
-        # attempt to get a valid user input
-        try: 
-            user_menu_choice = int(input("Select an Option: "))
-        # if the input value is a non-integer then showcase the menu again
-        except ValueError:
-            # notify user with an error message
-            print("Error: Invalid User Input! Please enter a number.")
-            self.menu()
+        while True:
+            # selection option from menu
+            print("\n=== Menu ===")
+            print("1. Kilometers to Miles")
+            print("2. Celsius to Fahrenheit")
+            print("3. Kilograms to Pounds")
+            print("4. Exit Program")
+            print("=== ==== ===")
+            
+            # attempt to get a valid user input
+            try: 
+                user_menu_choice = int(input("Select an Option: "))
+            # if the input value is a non-integer then showcase the menu again
+            except ValueError:
+                # notify user with an error message
+                print("Error: Invalid User Input! Please enter a number.")
 
-        # call relevant funciton based on selected menu option
-        if user_menu_choice == 1:
-            print(self.kilometers_to_miles())
-            self.menu()
-        elif user_menu_choice == 2:
-            print(self.celsius_to_fahrenheit())
-            self.menu()
-        elif user_menu_choice == 3:
-            print(self.kilograms_to_pounds())
-            self.menu()
-        else:
-            print("Error: Invalid User Input! Please select a number from the menu.")
-            self.menu()
+            # call relevant funciton based on selected menu option
+            if user_menu_choice == 1:
+                print(self.kilometers_to_miles())
+            elif user_menu_choice == 2:
+                print(self.celsius_to_fahrenheit())
+            elif user_menu_choice == 3:
+                print(self.kilograms_to_pounds())
+            elif user_menu_choice == 4:
+                print("Exiting...")
+                break
+            else:
+                print("Error: Invalid User Input! Please select a number from the menu.")
             
     # kilometers to miles converter
     def kilometers_to_miles(self):
