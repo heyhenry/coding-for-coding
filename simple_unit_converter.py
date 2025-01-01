@@ -14,7 +14,7 @@ class MainApp:
     # selectable menu
     def menu(self):
         # selection option from menu
-        print("=== Menu ===")
+        print("\n=== Menu ===")
         print("1. Kilometers to Miles")
         print("2. Celsius to Fahrenheit")
         print("3. Kilograms to Pounds")
@@ -32,12 +32,16 @@ class MainApp:
         # call relevant funciton based on selected menu option
         if user_menu_choice == 1:
             print(self.kilometers_to_miles())
+            self.menu()
         elif user_menu_choice == 2:
             print(self.celsius_to_fahrenheit())
+            self.menu()
         elif user_menu_choice == 3:
             print(self.kilograms_to_pounds())
+            self.menu()
         else:
-            print("Invalid User Input!")
+            print("Invalid User Input! Please select a number from the menu.")
+            self.menu()
             
     # kilometers to miles converter
     def kilometers_to_miles(self):
