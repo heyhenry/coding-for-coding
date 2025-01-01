@@ -10,7 +10,7 @@ Features:
 Stretch Goal: Add input validation to handle incorrect or non-numeric inputs.
 """
 class MainApp:
-    
+
     # selectable menu
     def menu(self):
         print("=== Menu ===")
@@ -19,19 +19,20 @@ class MainApp:
         print("3. Kilograms to Pounds")
         print("=== ==== ===")
         
-        user_choice = int(input("Select an Option: "))
+        user_menu_choice = int(input("Select an Option: "))
 
-        if user_choice == 1:
+        if user_menu_choice == 1:
             self.kilometers_to_miles()
-        elif user_choice == 2:
+        elif user_menu_choice == 2:
             self.celsius_to_fahrenheit()
-        elif user_choice == 3:
+        elif user_menu_choice == 3:
             self.kilograms_to_pounds()
         else:
             print("invalid user input!")
             
     def kilometers_to_miles(self):
-        print('kilometers!')
+        user_given_value = float(input("Enter value (in km): "))
+        return print(f'{user_given_value} kilometers converts to {round(user_given_value * 0.62137, 1)} miles.')
 
     def celsius_to_fahrenheit(self):
         print('celsius!')
