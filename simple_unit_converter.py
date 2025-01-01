@@ -32,7 +32,8 @@ class MainApp:
             
     def kilometers_to_miles(self):
         user_given_value = float(input("Enter value (in kilometers): "))
-        return print(f'{user_given_value} kilometers converts to {round(user_given_value * 0.62137, 1)} miles.')
+        result = user_given_value * 0.62137
+        return print(f'{user_given_value} kilometers converts to {round(result, 1)} miles.')
 
     def celsius_to_fahrenheit(self):
         user_given_value = float(input("Enter value (in celsius): "))
