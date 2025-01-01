@@ -41,7 +41,9 @@ class MainApp:
         return print(f'{user_given_value} celsius converts to {round(result, 1)} fahrenheit.')
 
     def kilograms_to_pounds(self):
-        print('kg!')    
+        user_given_value = float(input("Enter value (in kilograms): "))
+        result = user_given_value * 2.205
+        return print(f'{user_given_value} kilograms converts to {round(result, 1)} pounds.')  
 
 if __name__ == "__main__":
     app = MainApp()
