@@ -20,7 +20,14 @@ class MainApp:
         print("3. Kilograms to Pounds")
         print("=== ==== ===")
         
-        user_menu_choice = int(input("Select an Option: "))
+        # attempt to get a valid user input
+        try: 
+            user_menu_choice = int(input("Select an Option: "))
+        # if the input value is a non-integer then showcase the menu again
+        except ValueError:
+            # notify user with an error message
+            print("Invalid User Input! Please enter a number.")
+            self.menu()
 
         # call relevant funciton based on selected menu option
         if user_menu_choice == 1:
@@ -59,3 +66,6 @@ class MainApp:
 if __name__ == "__main__":
     app = MainApp()
     app.menu()
+    
+    # to see the code in a document style in the terminal
+    # help(MainApp)
