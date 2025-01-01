@@ -31,11 +31,13 @@ class MainApp:
             print("invalid user input!")
             
     def kilometers_to_miles(self):
-        user_given_value = float(input("Enter value (in km): "))
+        user_given_value = float(input("Enter value (in kilometers): "))
         return print(f'{user_given_value} kilometers converts to {round(user_given_value * 0.62137, 1)} miles.')
 
     def celsius_to_fahrenheit(self):
-        print('celsius!')
+        user_given_value = float(input("Enter value (in celsius): "))
+        result = (user_given_value * 9/5) + 32
+        return print(f'{user_given_value} celsius converts to {round(result, 1)} fahrenheit.')
 
     def kilograms_to_pounds(self):
         print('kg!')    
