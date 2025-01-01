@@ -49,7 +49,7 @@ class MainApp:
         # conversion formula (km to mi)
         result = user_given_value * 0.62137
         # create string formatted result
-        result_string = f'{user_given_value} kilometers converts to {round(result, 1)} miles.'
+        result_string = f'Result: {user_given_value} kilometers converts to {round(result, 1)} miles.'
         return result_string
 
     # celsius to fahrenheit converter
@@ -58,7 +58,7 @@ class MainApp:
         # conversion formula (C to F)
         result = (user_given_value * 9/5) + 32
         # create string formatted result
-        result_string = f'{user_given_value} celsius converts to {round(result, 1)} fahrenheit.'
+        result_string = f'Result: {user_given_value} celsius converts to {round(result, 1)} fahrenheit.'
         return result_string
 
     # kilograms to pounds converter
@@ -67,7 +67,7 @@ class MainApp:
         # conversion formula (kg to lb)
         result = user_given_value * 2.205
         # create string formatted result
-        result_string = f'{user_given_value} kilograms converts to {round(result, 1)} pounds.'
+        result_string = f'Result: {user_given_value} kilograms converts to {round(result, 1)} pounds.'
         return result_string 
 
 if __name__ == "__main__":
