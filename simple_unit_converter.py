@@ -13,6 +13,7 @@ class MainApp:
 
     # selectable menu
     def menu(self):
+        # selection option from menu
         print("=== Menu ===")
         print("1. Kilometers to Miles")
         print("2. Celsius to Fahrenheit")
@@ -21,6 +22,7 @@ class MainApp:
         
         user_menu_choice = int(input("Select an Option: "))
 
+        # call relevant funciton based on selected menu option
         if user_menu_choice == 1:
             self.kilometers_to_miles()
         elif user_menu_choice == 2:
@@ -28,21 +30,30 @@ class MainApp:
         elif user_menu_choice == 3:
             self.kilograms_to_pounds()
         else:
-            print("invalid user input!")
+            print("Invalid User Input!")
             
+    # kilometers to miles converter
     def kilometers_to_miles(self):
         user_given_value = float(input("Enter value (in kilometers): "))
+        # conversion formula (km to mi)
         result = user_given_value * 0.62137
+        # display result
         return print(f'{user_given_value} kilometers converts to {round(result, 1)} miles.')
 
+    # celsius to fahrenheit converter
     def celsius_to_fahrenheit(self):
         user_given_value = float(input("Enter value (in celsius): "))
+        # conversion formula (C to F)
         result = (user_given_value * 9/5) + 32
+        # display result
         return print(f'{user_given_value} celsius converts to {round(result, 1)} fahrenheit.')
 
+    # kilograms to pounds converter
     def kilograms_to_pounds(self):
         user_given_value = float(input("Enter value (in kilograms): "))
+        # conversion formula (kg to lb)
         result = user_given_value * 2.205
+        # display result
         return print(f'{user_given_value} kilograms converts to {round(result, 1)} pounds.')  
 
 if __name__ == "__main__":
