@@ -54,7 +54,7 @@ class MainApp:
         valid_chars = string.ascii_letters + string.digits + string.punctuation
         password_list = []
         for _ in range(quantity):    
-            password = random.sample(valid_chars, length)
+            password = random.choices(valid_chars, k=length)
             password = ''.join(password)
             password_list.append(password)
         return password_list
