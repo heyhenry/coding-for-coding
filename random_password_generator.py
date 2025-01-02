@@ -16,9 +16,11 @@ import random
 class MainApp:
     
     def main_screen(self):
-        print("===[Random Password Generator]===")
+        print("\n===[Random Password Generator]===")
         print("1. Generate A Password")
         print("2. Generate Multiple Passwords")
+        print("3. Exit Program")
+        print("=================================")
 
         user_quantity_choice = int(input("Enter Choice (Associated Numeric Value): "))
 
