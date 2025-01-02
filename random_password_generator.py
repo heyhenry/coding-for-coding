@@ -16,22 +16,30 @@ import random
 class MainApp:
     
     def main_screen(self):
-        print("\n===[Random Password Generator]===")
-        print("1. Generate A Password")
-        print("2. Generate Multiple Passwords")
-        print("3. Exit Program")
-        print("=================================")
+        while True:
+            print("\n===[Random Password Generator]===")
+            print("1. Generate A Password")
+            print("2. Generate Multiple Passwords")
+            print("3. Exit Program")
+            print("=================================")
 
-        user_quantity_choice = int(input("Enter Choice (Associated Numeric Value): "))
+            try:
+                user_menu_choice = int(input("Enter Choice (Associated Numeric Value): "))
 
-        if user_quantity_choice == 1:
-            user_length_choice = int(input("Enter desired length of password: "))
-            print(self.generate_password(1, user_length_choice))
-        elif user_quantity_choice == 2:
-            user_specific_quantity_choice = int(input("Enter desired quantity of passwords: "))
-            user_length_choice = int(input("Enter desired length of password: "))
-            print(self.generate_password(user_specific_quantity_choice, user_length_choice))
-
+                if user_menu_choice == 1:
+                    user_length_choice = int(input("Enter desired length of password: "))
+                    print(self.generate_password(1, user_length_choice))
+                elif user_menu_choice == 2:
+                    user_specific_quantity_choice = int(input("Enter desired quantity of passwords: "))
+                    user_length_choice = int(input("Enter desired length of password: "))
+                    print(self.generate_password(user_specific_quantity_choice, user_length_choice))
+                elif user_menu_choice == 3:
+                    print("Exiting...")
+                    break
+                else:
+                    print("Invalid Input! Enter a numeric value associated with an option in the menu.")
+            except ValueError:
+                print("Invalid Input! Enter numeric value associated with an option in the menu.")
 
     def generate_password(self, quantity, length):
         valid_chars = string.ascii_letters + string.digits + string.punctuation
