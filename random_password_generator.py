@@ -15,6 +15,7 @@ import random
 
 class MainApp:
     
+    # the main menu screen
     def main_screen(self):
         while True:
             print("\n===[Random Password Generator]===")
@@ -49,7 +50,8 @@ class MainApp:
                     print("Invalid Input! Enter a numeric value associated with an option in the menu.")
             except ValueError:
                 print("Invalid Input! Enter numeric value associated with an option in the menu.")
-
+    
+    # password generation algorithm
     def generate_password(self, quantity, length):
         valid_chars = string.ascii_letters + string.digits + string.punctuation
         password_list = []
