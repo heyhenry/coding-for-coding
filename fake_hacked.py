@@ -34,6 +34,7 @@ def update_text():
 
 root = tk.Tk()
 root.geometry('400x600')
+root.title('')
 
 textbox = tk.Text(root, background='black', foreground='green')
 textbox.pack(fill='both', expand=True)
