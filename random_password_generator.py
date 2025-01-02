@@ -10,6 +10,9 @@ Features:
 
 Stretch Goal: Add an option for the user to exclude certain characters or generate multiple passwords at once.
 """
+import string
+import random
+
 class MainApp:
     
     def main_screen(self):
@@ -20,11 +23,15 @@ class MainApp:
         user_length_choice = int(input("Enter desired length of password: "))
 
         if user_quantity_choice == 1:
-            self.generate_password(1, 2)
+            print(self.generate_password(user_quantity_choice, user_length_choice))
 
 
     def generate_password(self, quantity, length):
-        print('poop')
+        valid_chars = string.ascii_letters + string.digits + string.punctuation
+        password = random.sample(valid_chars, length)
+        password = ''.join(password)
+        return password
+        
 
 if __name__ == "__main__":
     app = MainApp()
