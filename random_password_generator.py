@@ -18,12 +18,17 @@ class MainApp:
     def main_screen(self):
         print("===[Random Password Generator]===")
         print("1. Generate A Password")
+        print("2. Generate Multiple Passwords")
 
         user_quantity_choice = int(input("Enter Choice (Associated Numeric Value): "))
-        user_length_choice = int(input("Enter desired length of password: "))
 
         if user_quantity_choice == 1:
-            print(self.generate_password(user_length_choice, user_length_choice))
+            user_length_choice = int(input("Enter desired length of password: "))
+            print(self.generate_password(1, user_length_choice))
+        elif user_quantity_choice == 2:
+            user_specific_quantity_choice = int(input("Enter desired quantity of passwords: "))
+            user_length_choice = int(input("Enter desired length of password: "))
+            print(self.generate_password(user_specific_quantity_choice, user_length_choice))
 
 
     def generate_password(self, quantity, length):
