@@ -27,13 +27,22 @@ class MainApp:
                 user_menu_choice = int(input("Enter Choice (Associated Numeric Value): "))
 
                 if user_menu_choice == 1:
-                    user_length_choice = int(input("Enter desired length of password: "))
-                    print(self.generate_password(1, user_length_choice))
+                    try:
+                        user_length_choice = int(input("Enter desired length of password: "))
+                        print(self.generate_password(1, user_length_choice))
+                    except ValueError:
+                        print("Invalid input! Enter a numeric value (whole number).")
                 elif user_menu_choice == 2:
-                    user_specific_quantity_choice = int(input("Enter desired quantity of passwords: "))
-                    user_length_choice = int(input("Enter desired length of password: "))
-                    print(self.generate_password(user_specific_quantity_choice, user_length_choice))
-                elif user_menu_choice == 3:
+                    try:
+                        user_specific_quantity_choice = int(input("Enter desired quantity of passwords: "))
+                        try:
+                            user_length_choice = int(input("Enter desired length of password: "))
+                            print(self.generate_password(user_specific_quantity_choice, user_length_choice))
+                        except ValueError:
+                            print("Invalid input! Enter a numeric value (whole number).")
+                    except ValueError:
+                        print("Invalid input! Enter a numeric value (whole number).")
+                elif user_menu_choice == 3:       
                     print("Exiting...")
                     break
                 else:
@@ -50,7 +59,6 @@ class MainApp:
             password_list.append(password)
         return password_list
         
-
 if __name__ == "__main__":
     app = MainApp()
     app.main_screen()
