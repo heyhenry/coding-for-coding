@@ -1,3 +1,5 @@
+# passed all leetcode sandbox testcases
+
 def max_profit(prices : list[int]) -> int:
     potential_profit = 0
     min_price = None
