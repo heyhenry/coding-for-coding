@@ -1,16 +1,17 @@
 def group_anagrams(lst : list):
-    h_anagrams = {}
+    # initialise a dictionary to group anagrams
+    anagram_groups = {}
+    # iterate through the lst list
     for i in lst:
-        if "".join(sorted(i)) not in h_anagrams:
-            h_anagrams["".join(sorted(i))] = [i]
+        # sort each word alphabetically and compare
+        sorted_key = "".join(sorted(i))
+        if sorted_key not in anagram_groups:
+            anagram_groups[sorted_key] = [i]
         else:
-            h_anagrams["".join(sorted(i))].append(i)
+            anagram_groups[sorted_key].append(i)
     
-    results = []
-    for i in h_anagrams.values():
-        results.append(i)
-
-    return results
+    # create a list based on the values of anagram_groups
+    return list(anagram_groups.values())
 
 # test cases
 test_cases = [
