@@ -1,22 +1,14 @@
 def valid_parenthesis(s : str) -> bool:
     stack = []
-    size = len(s)
+    pairs = {')': '(', ']': ']', '}': '{'}
     for c in s:
         if c in '([{':
             stack.append(c)
-        elif stack:
-            if c == ')' and stack[-1] == '(':
-                stack.pop()
-            elif c == ']' and stack[-1] == '[':
-                stack.pop()
-            elif c == '}' and stack[-1] == '{':
-                stack.pop() 
-            else:
-                stack.append(c)
+        elif stack and stack[-1] == pairs.get(c):
+            stack.pop()
         else:
-            stack.append(c)
-    
-    return len(stack) == 0
+            return False
+    return not stack
 
 test_cases = [
     "()",
