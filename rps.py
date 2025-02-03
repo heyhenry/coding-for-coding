@@ -25,20 +25,20 @@ while running:
     print("2. Paper")
     print("3. Scissors")
     print("4. Exit")
-    choice = int(input("Select a number: "))
+    choice = input("Select a number: ")
     print("=== ==== ===")
 
-    if choice == 1:
+    if choice == '1':
         rps_battle(random.choice(ai_choices), 'rock')
-    elif choice == 2:
+    elif choice == '2':
         rps_battle(random.choice(ai_choices), 'paper')
-    elif choice == 3:
+    elif choice == '3':
         rps_battle(random.choice(ai_choices), 'scissors')
-    elif choice == 4:
+    elif choice == '4':
         print("Exiting the program...")
         exit(0)
     else:
-        raise ValueError("Must be a number listed on the menu.")
-
+        print("Must be a number listed on the menu.")
+        
 
 
