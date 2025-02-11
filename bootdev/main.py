@@ -1,12 +1,10 @@
 class Human:
     def __init__(self, name):
         self.__name = name
-
+    
     def get_name(self):
         return self.__name
     
-## don't touch above this line
-
 class Archer(Human):
     def __init__(self, name, num_arrows):
         super().__init__(name)
@@ -14,12 +12,12 @@ class Archer(Human):
 
     def get_num_arrows(self):
         return self.__num_arrows
-
+    
     def use_arrows(self, num):
-        if self.__num_arrows < num:
+        if self.get_num_arrows() < num:
             raise Exception("not enough arrows")
         else:
-            self.__num_arrows -= num      
+            self.__num_arrows -= num
 
 class Crossbowman(Archer):
     def __init__(self, name, num_arrows):
