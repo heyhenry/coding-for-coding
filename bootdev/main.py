@@ -1,28 +1,23 @@
-class Human:
-    def __init__(self, name):
-        self.__name = name
-    
-    def get_name(self):
-        return self.__name
-    
-class Archer(Human):
-    def __init__(self, name, num_arrows):
-        super().__init__(name)
-        self.__num_arrows = num_arrows
+class Unit:
+    def __init__(self, name, pos_x, pos_y):
+        self.name = name
+        self.pos_x = pos_x
+        self.pos_y = pos_y
 
-    def get_num_arrows(self):
-        return self.__num_arrows
-    
-    def use_arrows(self, num):
-        if self.get_num_arrows() < num:
-            raise Exception("not enough arrows")
-        else:
-            self.__num_arrows -= num
+    def in_area(self, x_1, y_1, x_2, y_2):
+        if (self.pos_x >= x_1 and self.pos_x <= x_2) and (self.pos_y >= y_1 and self.pos_y <= y_2):
+            return True
+        return False 
 
-class Crossbowman(Archer):
-    def __init__(self, name, num_arrows):
-        super().__init__(name, num_arrows)
 
-    def triple_shot(self, target):
-        super().use_arrows(3)
-        return f"{target.get_name()} was shot by 3 crossbow bolts"
+class Dragon(Unit):
+    def __init__(self, name, pos_x, pos_y, fire_range):
+        super().__init__(name, pos_x, pos_y)
+        self.__fire_range = fire_range
+
+    def breathe_fire(self, x, y, units):
+        hit_units = []
+        for u in units:
+            if u.in_area(x-self.__fire_range, y-self.__fire_range, x+self.__fire_range, y+self.__fire_range):
+                hit_units.append(u)
+        return hit_units
