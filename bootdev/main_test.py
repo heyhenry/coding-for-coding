@@ -1,47 +1,32 @@
 from main import *
 
 run_cases = [
-    (Siege(100, 10), 100, 4, 40, None),
-    (BatteringRam(100, 10, 2000, 5), 100, 5, 70, 10),
-    (Catapult(100, 10, 2), 100, 6, 60, 2),
+    (Rectangle(0, 0, 4, 4), Rectangle(3, 3, 6, 6), True),
+    (Rectangle(0, 0, 4, 4), Rectangle(5, 5, 8, 8), False),
+    (Rectangle(1, 1, 2, 2), Rectangle(2, 3, 3, 4), False),
 ]
 
 submit_cases = run_cases + [
-    (Siege(60, 5), 100, 2, 40, None),
-    (BatteringRam(80, 5, 2000, 4), 100, 4, 100, 8),
-    (Catapult(90, 4, 3), 100, 10, 250, 3),
+    (Rectangle(0, 0, 4, 4), Rectangle(4, 4, 8, 8), True),
+    (Rectangle(6, 6, 9, 9), Rectangle(5, 5, 8, 8), True),
+    (Rectangle(0, 0, 1, 1), Rectangle(4, 4, 5, 5), False),
+    (Rectangle(1, 1, 4, 4), Rectangle(2, 2, 3, 3), True),
+    (Rectangle(1, 1, 2, 2), Rectangle(0, 0, 4, 4), True),
 ]
 
 
-def test(vehicle, distance, fuel_price, expected_cost, expected_cargo_volume):
-    try:
-        vehicle_type = vehicle.__class__.__name__
-        print("---------------------------------")
-        print(
-            f"Testing {vehicle_type}: Max Speed {vehicle.max_speed} kph, Efficiency {vehicle.efficiency} km/food"
-        )
-        print(f"Distance: {distance} km, Price: {fuel_price} per food")
-        print(
-            f"Expected: Trip Cost: {expected_cost}, Cargo Volume: {expected_cargo_volume}"
-        )
-        actual_cost = int(vehicle.get_trip_cost(distance, fuel_price))
-        actual_cargo_volume = vehicle.get_cargo_volume()
-        if actual_cargo_volume is not None:
-            actual_cargo_volume = int(actual_cargo_volume)
-        print(
-            f"  Actual: Trip Cost: {actual_cost}, Cargo Volume: {actual_cargo_volume}"
-        )
-        if (
-            actual_cost == expected_cost
-            and expected_cargo_volume == actual_cargo_volume
-        ):
-            print("Pass")
-            return True
-        else:
-            print("Fail")
-            return False
-    except Exception as e:
-        print(f"Error: {e}")
+def test(rect1, rect2, expected_overlap):
+    print("---------------------------------")
+    print(f"Overlap: {rect1} and {rect2}")
+    print(f" - Expected overlap: {expected_overlap}")
+
+    result = rect1.overlaps(rect2)
+    print(f" - Actual overlap: {result}")
+
+    if result == expected_overlap:
+        print("Pass")
+        return True
+    else:
         print("Fail")
         return False
 

@@ -1,39 +1,48 @@
-class Siege:
-    def __init__(self, max_speed, efficiency):
-        self.max_speed = max_speed
-        self.efficiency = efficiency
-
-    def get_trip_cost(self, distance, food_price):
-        return (distance / self.efficiency) * food_price
-
-    def get_cargo_volume(self):
-        pass
-
-
-class BatteringRam(Siege):
-    def __init__(
-        self,
-        max_speed,
-        efficiency,
-        load_weight,
-        bed_area,
-    ):
-        super().__init__(max_speed, efficiency)
-        self.load_weight = load_weight
-        self.bed_area = bed_area
-
-    def get_trip_cost(self, distance, food_price):
-        base_cost = super().get_trip_cost(distance, food_price)
-        return base_cost + (self.load_weight * 0.01)
-
-    def get_cargo_volume(self):
-        return self.bed_area * 2
+class Rectangle:
+    def overlaps(self, rect):
+        checks = [False]*4
+        if self.get_left_x() <= rect.get_right_x():
+            checks[0]=True
+        if self.get_right_x() >= rect.get_left_x():
+            checks[1]=True
+        if self.get_top_y() >= rect.get_bottom_y():
+            checks[2]=True
+        if self.get_bottom_y() <= rect.get_top_y():
+            checks[3]=True
+        return checks == [True]*4
 
 
-class Catapult(Siege):
-    def __init__(self, max_speed, efficiency, cargo_volume):
-        super().__init__(max_speed, efficiency)
-        self.cargo_volume = cargo_volume
+    # don't touch below this line
 
-    def get_cargo_volume(self):
-        return self.cargo_volume
+    def __init__(self, x1, y1, x2, y2):
+        self.__x1 = x1
+        self.__y1 = y1
+        self.__x2 = x2
+        self.__y2 = y2
+
+    # bottom 
+    def get_left_x(self):
+        if self.__x1 < self.__x2:
+            return self.__x1
+        return self.__x2
+
+    # top
+    def get_right_x(self):
+        if self.__x1 > self.__x2:
+            return self.__x1
+        return self.__x2
+
+    # top
+    def get_top_y(self):
+        if self.__y1 > self.__y2:
+            return self.__y1
+        return self.__y2
+
+    # bottom
+    def get_bottom_y(self):
+        if self.__y1 < self.__y2:
+            return self.__y1
+        return self.__y2
+
+    def __repr__(self):
+        return f"Rectangle({self.__x1}, {self.__y1}, {self.__x2}, {self.__y2})"
