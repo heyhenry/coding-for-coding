@@ -1,45 +1,49 @@
 from main import *
 
+SUITS = ["Clubs", "Diamonds", "Hearts", "Spades"]
+
+RANKS = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"]
+
 run_cases = [
-    (Sword("bronze"), Sword("bronze"), "iron", None),
-    (Sword("bronze"), Sword("iron"), None, "cannot craft"),
+    ("Ace", "Hearts", "Queen", "Hearts", False, True),
+    ("2", "Spades", "2", "Hearts", False, True),
 ]
 
 submit_cases = run_cases + [
-    (Sword("steel"), Sword("steel"), None, "cannot craft"),
-    (Sword("iron"), Sword("iron"), "steel", None),
-    (Sword("bronze"), Sword("steel"), None, "cannot craft"),
+    ("Ace", "Spades", "Ace", "Spades", True, False),
+    ("3", "Diamonds", "7", "Clubs", False, False),
+    ("King", "Clubs", "King", "Hearts", False, False),
+    ("Queen", "Diamonds", "Jack", "Spades", False, True),
+    ("10", "Hearts", "10", "Hearts", True, False),
 ]
 
 
-def test(sword1, sword2, expected_result, expected_err):
-    try:
-        print("---------------------------------")
-        print(
-            f"Crafting a {sword1.sword_type} sword with a {sword2.sword_type} sword..."
-        )
-        result = sword1 + sword2
+def test(rank_1, suit_1, rank_2, suit_2, expected_eq, expected_gt):
+    print("---------------------------------")
+    print(f"Inputs: {rank_1} of {suit_1}, {rank_2} of {suit_2}")
+    print("Expected:")
+    print(f" * Equal: {expected_eq}")
+    print(f" * Greater than: {expected_gt}")
+    print(f" * Less than: {not (expected_eq or expected_gt)}")
 
-        if expected_err:
-            print(f"Expected Exception: {expected_err}")
-            print("Actual: no exception raised")
-            print("Fail")
-            return False
-
-        print(f"Expected: {expected_result}")
-        print(f"Actual: {result.sword_type}")
-        print(f"A new {result.sword_type} sword was crafted!")
-        if result.sword_type != expected_result:
-            print("Fail")
-            return False
-
-    except Exception as e:
-        print(f"Expected Exception: {expected_err}")
-        print(f"Actual Exception: {e}")
-        if expected_err != str(e):
-            print("Fail")
-            return False
-
+    card_1 = Card(rank_1, suit_1)
+    card_2 = Card(rank_2, suit_2)
+    result_eq = card_1 == card_2
+    result_gt = card_1 > card_2
+    result_lt = card_1 < card_2
+    print("Actual:")
+    print(f" * Equal: {result_eq}")
+    if result_eq != expected_eq:
+        print("Fail")
+        return False
+    print(f" * Greater than: {result_gt}")
+    if result_gt != expected_gt:
+        print("Fail")
+        return False
+    print(f" * Less than: {result_lt}")
+    if result_lt == (expected_eq or expected_gt or None):
+        print("Fail")
+        return False
     print("Pass")
     return True
 

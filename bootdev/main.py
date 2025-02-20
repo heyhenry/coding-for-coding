@@ -1,17 +1,39 @@
-class Sword:
-    def __init__(self, sword_type):
-        self.sword_type = sword_type
+import random
 
-    def __add__(self, other):
-        # dictionary indicating upgrade options of swords based on type
-        upgrade_options = {
-            'bronze': 'iron',
-            'iron': 'steel'
-        }
-        # validation check to see if swords match and/or is apart of the given selection range
-        if (self.sword_type != other.sword_type or 
-            self.sword_type not in upgrade_options or 
-            other.sword_type not in upgrade_options):
-            raise Exception("cannot craft")
-        # return a new sword if validation checks out (i.e sword matches were found)
-        return Sword(upgrade_options[self.sword_type])
+SUITS = ["Clubs", "Diamonds", "Hearts", "Spades"]
+
+RANKS = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"]
+
+
+class Card:
+    def __init__(self, rank, suit):
+        self.rank = rank
+        self.suit = suit
+        self.rank_index = RANKS.index(rank)
+        self.suit_index = SUITS.index(suit)
+
+    def __eq__(self, other):
+        if self.rank == other.rank and self.suit == other.suit:
+            return True
+        return False
+
+    def __lt__(self, other):
+        if self.rank_index < other.rank_index:
+            return True
+        elif self.rank_index == other.rank_index:
+            if self.suit_index < other.suit_index:
+                return True
+        return False
+
+    def __gt__(self, other):
+        if self.rank_index > other.rank_index:
+            return True
+        elif self.rank_index == other.rank_index:
+            if self.suit_index > other.suit_index:
+                return True
+        return False
+
+    # don't touch below this line
+
+    def __str__(self):
+        return f"{self.rank} of {self.suit}"
