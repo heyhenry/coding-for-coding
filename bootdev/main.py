@@ -9,7 +9,9 @@ class Sword:
             'iron': 'steel'
         }
         # validation check to see if swords match and/or is apart of the given selection range
-        if self.sword_type != other.sword_type or self.sword_type not in upgrade_options or other.sword_type not in upgrade_options:
+        if (self.sword_type != other.sword_type or 
+            self.sword_type not in upgrade_options or 
+            other.sword_type not in upgrade_options):
             raise Exception("cannot craft")
         # return a new sword if validation checks out (i.e sword matches were found)
         return Sword(upgrade_options[self.sword_type])
