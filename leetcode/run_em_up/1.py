@@ -16,7 +16,7 @@ class Solution:
 
         for i in range(size):
             complement = target - nums[i]
-            if complement in nums_dict and complement != i:
+            if complement in nums_dict and nums_dict[complement] != i:
                 return [i, nums_dict[complement]]
 
 solution = Solution()
