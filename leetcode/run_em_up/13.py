@@ -19,31 +19,42 @@ class Solution:
         size = len(s)
         result = 0
         skip_flag = False
-        # algorithm
+        # my first solution
+        # # algorithm
+        # for i in range(size):
+        #     # skip an iteration if future i was already added to result
+        #     if skip_flag:
+        #         skip_flag = False
+        #         continue
+        #     # find integer conversion where there is a possibility of
+        #     # two elements may be required
+        #     if i+1 <= size-1:
+        #         # see if conversion requires 2 elements i.e. IV, CM, CD
+        #         if s[i]+s[i+1] in roman_map:
+        #             result += roman_map[s[i]+s[i+1]]
+        #             # flag to skip next iteration
+        #             skip_flag = True
+        #         else:
+        #             result += roman_map[s[i]]
+        #     else:
+        #         result += roman_map[s[i]]
+        # return result
+
+        # my second solution (got by checking solution by 'The Subtle One' on leetcode)
         for i in range(size):
-            # skip an iteration if future i was already added to result
-            if skip_flag:
-                skip_flag = False
-                continue
-            # find integer conversion where there is a possibility of
-            # two elements may be required
-            if i+1 <= size-1:
-                # see if conversion requires 2 elements i.e. IV, CM, CD
-                if s[i]+s[i+1] in roman_map:
-                    result += roman_map[s[i]+s[i+1]]
-                    # flag to skip next iteration
-                    skip_flag = True
-                else:
-                    result += roman_map[s[i]]
+            if i+1 <= size-1 and roman_map[s[i]] < roman_map[s[i+1]]:
+                result -= roman_map[s[i]]
             else:
                 result += roman_map[s[i]]
         return result
+                        
+
 
 solution = Solution()
 
 test_cases = [
-    "III",
-    "LVIII",
+    # "III",
+    # "LVIII",
     "MCMXCIV"
 ]
 
