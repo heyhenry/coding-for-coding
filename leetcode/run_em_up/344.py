@@ -1,9 +1,10 @@
 class Solution:
     def reverse_string(self, s : list[str]) -> None:
-        rev = []
+        # solution 1
         rev = s[::-1]
-        s.clear()
-        s += rev
+        for i in range(len(s)):
+            s[i] = rev[i]
+        return s
 
 solution = Solution()
 test_cases = [
