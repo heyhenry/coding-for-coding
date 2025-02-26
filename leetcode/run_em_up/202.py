@@ -16,7 +16,6 @@ class Solution:
                 n = new_n
             # if a duplicate new number is found, return False
             else:
-                
                 return False
         # if 1 is found, return True
         return True
