@@ -1,5 +1,6 @@
 class Solution:
     def search_insert(self, nums : list[int], target : int) -> int:
+        # solution - beats 100% of peers
         # list size variable <-- less len() executions
         size = len(nums)
         # early return if target value is lower than initial element in the list

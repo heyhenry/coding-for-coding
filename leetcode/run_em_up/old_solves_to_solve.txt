@@ -1,22 +1,23 @@
 Problems solved in the past to solve again: 
-1
+1 x
 3
-9
-13
+7 x
+9 x
+13 x
 14
 15
 20
 26
 27
 28
-35
-58
-66
-125
-202
+35 x
+58 x
+66 x
+125 x 
+202 x
 217
 268
-344
+344 x
 383
 387
 389
@@ -32,14 +33,14 @@ Problems solved in the past to solve again:
 1470
 1480
 1512
-1528
+1528 x
 1550
 1588
-1662
-1672
+1662 x
+1672 x
 1748
-1773
-1816
+1773 x
+1816 x
 1844
 1920
 1929
@@ -50,7 +51,7 @@ Problems solved in the past to solve again:
 2325
 2351
 2404
-2418
+2418 x
 2469
 2535
 2553
@@ -62,6 +63,6 @@ Problems solved in the past to solve again:
 2956
 2974
 
-- strggled:
+- struggled:
 1558
 541
