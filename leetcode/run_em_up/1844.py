@@ -23,13 +23,22 @@ class Solution:
         # return s
 
         # solution 2 - reduced code based on solution 1
-        new_s = ''
+        # new_s = ''
+        # for i in range(len(s)):
+        #     if s[i].isdigit():
+        #         new_s += chr(ord(s[i-1])+int(s[i]))
+        #     else:
+        #         new_s += s[i]
+        # s = new_s[:]
+        # return s
+
+        # solution 3
         for i in range(len(s)):
             if s[i].isdigit():
-                new_s += chr(ord(s[i-1])+int(s[i]))
-            else:
-                new_s += s[i]
-        s = new_s[:]
+                # replaces the i'th position element with a letter
+                # important that it only replaces the first occurrence, 
+                # as that will be the one being addressed in the current iteration
+                s = s.replace(s[i], chr(ord(s[i-1])+int(s[i])), 1)
         return s
 
 solution = Solution()
