@@ -1,12 +1,17 @@
 class Solution:
     def final_value_after_operations(self, operations : list[str]) -> int:
-        result = 0
-        for i in operations:
-            if '-' in i:
-                result -= 1
-            else:
-                result += 1
-        return result
+        # solution 1
+        # result = 0
+        # for i in operations:
+        #     if '-' in i:
+        #         result -= 1
+        #     else:
+        #         result += 1
+        # return result
+
+        # solution 2
+        ops = {"--X": -1, "X--": -1, "++X": 1, "X++": 1}
+        return sum([ops[x] for x in operations])
 
 solution = Solution()
 test_cases = [
