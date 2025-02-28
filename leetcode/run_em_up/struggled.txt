@@ -1,0 +1,5 @@
+# had to look at solution or partial solution to solve
+no.1588
+    - weakness: 
+        - forgot how to find create subarrays
+        - weak remembrance in slicing notations
