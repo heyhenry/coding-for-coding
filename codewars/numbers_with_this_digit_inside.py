@@ -44,4 +44,3 @@ def numbers_with_digit_inside(x, d):
         results[2] = d_product
 
     return results
-
