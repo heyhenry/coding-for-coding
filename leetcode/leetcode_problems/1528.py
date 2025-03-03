@@ -1,12 +1,20 @@
 class Solution:
     def restore_string(self, s : str, indices : list[str]) -> str:
-        s_dict = {}
+        # method 1
+        # s_dict = {}
+        # size = len(s)
+        # new_s = ''
+        # for i in range(size):
+        #     s_dict[indices[i]] = s[i]
+        # for key, val in sorted(s_dict.items()):
+        #     new_s += val
+        # return new_s
+
+        # method 2
         size = len(s)
-        new_s = ''
+        new_s = ['']*size
         for i in range(size):
-            s_dict[indices[i]] = s[i]
-        for key, val in sorted(s_dict.items()):
-            new_s += val
+            new_s[indices[i]] = s[i]
         return new_s
 
 solution = Solution()
