@@ -15,7 +15,7 @@ class Solution:
         new_s = ['']*size
         for i in range(size):
             new_s[indices[i]] = s[i]
-        return new_s
+        return "".join(new_s)
 
 solution = Solution()
 test_cases = [
