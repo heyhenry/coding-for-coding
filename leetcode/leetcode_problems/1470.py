@@ -1,12 +1,20 @@
 class Solution:
     def shuffle(self, nums : list[int], n : int) -> list[int]:
-        size = len(nums)
-        y_nums = [nums[i] for i in range(n, size)]
-        y_size = len(y_nums)
+        # method 1
+        # size = len(nums)
+        # y_nums = [nums[i] for i in range(n, size)]
+        # y_size = len(y_nums)
+        # new_nums = []
+        # for i in range(y_size):
+        #     new_nums.append(nums[i])
+        #     new_nums.append(y_nums[i])
+        # return new_nums
+
+        # method 2
         new_nums = []
-        for i in range(y_size):
+        for i in range(n):
             new_nums.append(nums[i])
-            new_nums.append(y_nums[i])
+            new_nums.append(nums[i+n])
         return new_nums
 
 solution = Solution()
