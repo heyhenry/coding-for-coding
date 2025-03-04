@@ -1,15 +1,21 @@
 class Solution:
     def find_difference(self, nums1 : list[int], nums2 : list[int]) -> list[list[int]]:
-        ans_nums1 = []
-        ans_nums2 = []
-        for i in nums1:
-            if i not in nums2 and i not in ans_nums1:
-                ans_nums1.append(i)
-        for i in nums2:
-            if i not in nums1 and i not in ans_nums2:
-                ans_nums2.append(i)
-        return [ans_nums1, ans_nums2]
+        # method 1
+        # ans_nums1 = []
+        # ans_nums2 = []
+        # for i in nums1:
+        #     if i not in nums2 and i not in ans_nums1:
+        #         ans_nums1.append(i)
+        # for i in nums2:
+        #     if i not in nums1 and i not in ans_nums2:
+        #         ans_nums2.append(i)
+        # return [ans_nums1, ans_nums2]
         
+        # method 2
+        s1 = set(nums1)
+        s2 = set(nums2)
+        return [list(s1-s2), list(s2-s1)]
+
 
 solution = Solution()
 test_cases = [
