@@ -1,7 +1,13 @@
 class Solution:
     def sorted_squares(self, nums : list[int]) -> list[int]:
-        new_nums = [nums[i]**2 for i in range(len(nums))]
-        return sorted(new_nums)
+        # method 1
+        # new_nums = [nums[i]**2 for i in range(len(nums))]
+        # return sorted(new_nums)
+
+        # method 2
+        # for i in range(len(nums)):
+        #     nums[i] = nums[i]**2
+        # return sorted(nums)
 
 solution = Solution()
 test_cases = [
