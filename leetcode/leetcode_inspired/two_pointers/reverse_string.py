@@ -1,4 +1,6 @@
 """
+two-pointer exercise 1.
+
 reverse a string, in-place modification
 """
 
@@ -6,6 +8,7 @@ class Solution:
     def reverse_string(self, s: list[str]) -> None:
         left = 0
         right = len(s)-1
+        # inner-to-outer sweep (a flavour of the two pointer technique)
         while left < right:
             s[left], s[right] = s[right], s[left]
             left += 1
