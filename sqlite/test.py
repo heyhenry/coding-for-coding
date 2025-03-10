@@ -24,5 +24,10 @@ cursor.execute(insert_account_statement)
 # save changes to the database
 connection.commit()
 
+sql_query = "Select * FROM accounts"
+cursor.execute(sql_query)
+result = cursor.fetchall()
+print(result)
+
 # close the database
 connection.close()
