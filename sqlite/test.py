@@ -13,9 +13,16 @@ CREATE TABLE IF NOT EXISTS accounts (
     Password TEXT
 );
 '''
-
 # execute the statement to create a table if it does not exist
 cursor.execute(create_table_statement)
+
+# force sqlite to fully sync the changes (i.e. creation of the database in this case)
+sync_changes_statement = "PRAGMA synchronous = FULL;"
+connection.execute(sync_changes_statement)
+
+# drop a table (aka delete a table from the database)
+# drop_table_statement = " drop table accounts "
+# cursor.execute(drop_table_statement)
 
 # insert values for a new account
 insert_account_statement = " INSERT INTO accounts (Account_Name, Username, Password) values ('Crunchyroll', 'Henryyy', 'Kokoro91') "
@@ -28,6 +35,13 @@ sql_query = "Select * FROM accounts"
 cursor.execute(sql_query)
 result = cursor.fetchall()
 print(result)
+
+# # retrieve the list of existing tables in the database
+# sql_query = " PRAGMA table_list "
+# cursor.execute(sql_query)
+# # the cursor will be holding the results of the recent query
+# result = cursor.fetchall()
+# print(result)
 
 # close the database
 connection.close()
