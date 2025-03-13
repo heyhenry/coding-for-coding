@@ -22,10 +22,16 @@ def delete_dump():
     if os.path.exists("dump.sql"):
         os.remove("dump.sql")
 
+def delete_database():
+    if os.path.exists("sample_database.db"):
+        os.remove("sample_database.db")
+
 # def encrypt_sql_data(dump_file, enc):
 
 # create_dump()
 # restore_dump()
-delete_dump()
+# delete_dump()
+# delete_database()
+
 connection.close()
 
