@@ -5,7 +5,7 @@ import shutil
 
 connection = sqlite3.connect("sample_database.db")
 cursor = connection.cursor()
-# key = Fernet("123")
+key = Fernet(Fernet.generate_key())
 
 def create_dump():
     with open("dump.sql", 'w') as outfile:
@@ -26,12 +26,22 @@ def delete_database():
     if os.path.exists("sample_database.db"):
         os.remove("sample_database.db")
 
-# def encrypt_sql_data(dump_file, enc):
+def encrypt_dump():
+    with open('dump.sql', 'rb') as file:
+        data = file.read()
+        encrypted_data = key.encrypt(data)
+        with open('encrypted_dump.sql', 'wb') as outfile:
+            outfile.write(encrypted_data)
+
+# def decrypt_dump()
+    
+
 
 # create_dump()
 # restore_dump()
 # delete_dump()
 # delete_database()
+encrypt_dump()
 
 connection.close()
 
